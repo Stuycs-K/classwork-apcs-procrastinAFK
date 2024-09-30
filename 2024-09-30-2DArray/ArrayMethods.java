@@ -4,11 +4,28 @@
 
 public class ArrayMethods {
 
-  public static void main(String[] args)
-  {
-    int[] test1 = {1, 2, 3, 4}
+  public static void main(String[] args) {
+    String arrow = "   ^--> "; //formatting
+    //test aryToString() (1D arrays)
+    System.out.println('\n' + "TESTING ARYTOSTRING() -- 1D ARRAYS");
+    System.out.println("*Note* This should already be working, just testing to double check");
+    int[] test1 = {1, 2, 3, 4};
+    System.out.println(arrow + "ID: " + test1 + "; CONTENTS: " + aryToString(test1));
+    System.out.println("*Note* This function will cause an error if the parameter is a non-initialized array (null)");
+    //test arrToString() (2D arrays)
+    System.out.println('\n' + "TESTING ARRTOSTRING() -- 2D ARRAYS");
+    int[][] test2a = new int[3][4];
+    System.out.println(arrow + "Default rectangular array contents: " + arrToString(test2a));
+    int[][] test2b = {{0, 1, 2}, {10, 20, 30}, {}, {123, 1234, 12345, 123456, 1234567, 12345678, 123456789}};
+    System.out.println(arrow + "Custom non-rectangular array contents: " + arrToString(test2b));
+    System.out.println("*Note* This function calls the one above (aryToString()), so null will once again return an error.");
   }
 
+//2. Copy your aryToString method from before.
+/**Return a String that represets the array in the format:
+* "[2, 3, 4, 9]"
+* Note the comma+space between values, and between values
+*/
   public static String aryToString(int[] nums) {
     String fin = "[";
     for (int i = 0; i < nums.length; i++) {
@@ -19,12 +36,6 @@ public class ArrayMethods {
     }
     return fin + "]";
   }
-//2. Copy your arrToString method from before.
-/**Return a String that represets the array in the format:
-* "[2, 3, 4, 9]"
-* Note the comma+space between values, and between values
-*/
-
 
 //3. Write arrToString, with a 2D array parameter.
 //Note: Different parameters are allowed with the same function name.
@@ -49,6 +60,7 @@ public class ArrayMethods {
 /*Return the sum of all of the values in the 2D array */
   public static int arr2DSum(int[][]nums){
     //use a nested loop to solve this
+    return 0; //temporary
   }
 
 /**Rotate an array by returning a new array with the rows and columns swapped.
