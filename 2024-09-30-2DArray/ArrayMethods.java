@@ -7,11 +7,11 @@ public class ArrayMethods {
     public static void main(String[] args) {
 		String arrow = "  ^--> "; //formatting
 		
-		//test aryToString() (1D arrays)
-		System.out.println('\n' + "TESTING ARYTOSTRING() -- 1D ARRAYS");
+		//test arrToString() (1D arrays)
+		System.out.println('\n' + "TESTING ARRTOSTRING() -- 1D ARRAYS");
 		System.out.println("*Note* This should already be working, just testing to double check");
 		int[] test1 = {1, 2, 3, 4};
-		System.out.println(arrow + "ID: " + test1 + "; CONTENTS: " + aryToString(test1));
+		System.out.println(arrow + "ID: " + test1 + "; CONTENTS: " + arrToString(test1));
 		System.out.println("*Note* This function will cause an error if the parameter is a non-initialized array (contains null)");
 		
 		//test arrToString() (2D arrays)
@@ -22,7 +22,7 @@ public class ArrayMethods {
 		System.out.println(arrow + "Custom non-rectangular array contents: " + arrToString(test2b));
 		int[][] test2c = new int[2][0];
 		System.out.println(arrow + "Array with two rows and size zero columns: " + arrToString(test2c));
-		System.out.println("*Note* This function calls the one above (aryToString()), so null will once again cause an error.");
+		System.out.println("*Note* This function calls the one above (arrToString() for 1D arrays), so null will once again cause an error.");
 		
 		//test arr2DSum()
 		System.out.println('\n' + "TESTING ARR2DSUM():");
@@ -77,14 +77,34 @@ public class ArrayMethods {
 		replaceNegative(test5b);
 		System.out.println("  |    " + arrow + "Modified array: " + arrToString(test5b));
     
+		//testing copy()
+		System.out.println('\n' + "TESTING COPY() -- 2D ARRAYS:");
+		int[][] test6a = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}};
+		System.out.println(arrow + "Copy a rectangular 2D array:");
+		System.out.println("  |    " + arrow + "Contents of original array: " + arrToString(test6a));
+		int[][] test6b = copy(test6a);
+		System.out.println("  |    " + arrow + "Contents of the copied array: " + arrToString(test6b));
+		System.out.println("  |    " + arrow + "Same ID: " + (test6a == test6b));
+		test6a = new int[2][6];
+		System.out.println("  |    " + arrow + "Just in case, changed the original array contents to: " + arrToString(test6a));
+		System.out.println("  |    " + arrow + "Contents of the copied array (should remain unchanged) are now: " + arrToString(test6b));
+		int[][] test6c = {{0, -2}, {}, {1}, {59865, 987, -9854, 9}};
+		System.out.println(arrow + "Copy a non-rectangular 2D array containing an empty array:");
+		System.out.println("  |    " + arrow + "Contents of original array: " + arrToString(test6c));
+		int[][] test6d = copy(test6c);
+		System.out.println("  |    " + arrow + "Contents of the copied array: " + arrToString(test6d));
+		System.out.println("  |    " + arrow + "Same ID: " + (test6c == test6d));
+		test6c = new int[2][6];
+		System.out.println("  |    " + arrow + "Just in case, changed the original array contents to: " + arrToString(test6c));
+		System.out.println("  |    " + arrow + "Contents of the copied array (should remain unchanged) are now: " + arrToString(test6d));
 	}
 
-	//2. Copy your aryToString method from before.
+	//2. Copy your arrToString method from before.
 	/*	*Return a String that represets the array in the format:
 		* "[2, 3, 4, 9]"
 		* Note the comma+space between values, and between values
 	*/
-	public static String aryToString(int[] nums) {
+	public static String arrToString(int[] nums) {
 		String fin = "[";
 		for (int i = 0; i < nums.length; i++) {
 		    fin += nums[i] + "";
@@ -107,7 +127,7 @@ public class ArrayMethods {
 	    //this should use arrToString(int[])
 		String fin = "[";
 		for (int i = 0; i < ary.length; i++) {
-		    fin += aryToString(ary[i]);
+		    fin += arrToString(ary[i]);
 		    if (i < ary.length - 1) {
 				fin += ", ";
 		    }
@@ -166,7 +186,20 @@ public class ArrayMethods {
 		//You SHOULD write a helper method for this.
 		//If you don't see a good way to do that, you should stop and look at prior methods.
     public static int[][] copy(int[][] nums){
-		return null;//placeholder so it compiles
+		int[][] fin = new int[nums.length][];
+		for (int i = 0; i < nums.length; i++) {
+			fin[i] = copy(nums[i]);
+		}
+		return fin;
     }
+	
+	//Helper function for the above copy() function; copies a 1D array
+	public static int[] copy(int[] nums) {
+		int[] fin = new int[nums.length];
+		for (int i = 0; i < nums.length; i++) {
+			fin[i] = nums[i];
+		}
+		return fin;
+	}
   
 }
