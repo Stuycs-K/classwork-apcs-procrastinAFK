@@ -6,6 +6,11 @@ public class ArrayDemo{
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
 
+    //Testing 1D arrToString() using Arrays.toString()
+    System.out.println('\n' + "TESTING 1D ARRTOSTRING() USING ARRAYS.TOSTRING():")
+
+
+    //REMINDER TO SELF: TEST 2D ARRTOSTRING USING A DIFFERENT ARRAY METHOD (deep? research)
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
