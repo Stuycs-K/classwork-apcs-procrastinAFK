@@ -5,25 +5,50 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
+	
+	//formatting
+	String arrow = "  ^--> ";
+	
+	//variables to compare two answers
+	String ans; //intended or correct answer
+	String myAns;
 
     //Testing 1D arrToString() using Arrays.toString()
     System.out.println('\n' + "TESTING 1D ARRTOSTRING() USING ARRAYS.TOSTRING():");
 	int[] test = {0, 1, 2, 3};
-    System.out.println("Array contents according to Arrays.toString(): " + Arrays.toString(test));
-	System.out.println("Array contents according to my 1D arrToString(): " + arrToString(test));
-	System.out.println("Same contents: " + Arrays.toString(test).equals(arrToString(test)));
+	ans = Arrays.toString(test);
+	myAns = arrToString(test);
+    System.out.println("Array contents according to Arrays.toString(): " + ans);
+	System.out.println("Array contents according to my 1D arrToString(): " + myAns);
+	System.out.println("Same contents: " + ans.equals(myAns));
 
     //Testing 2D arrToString() using Arrays.deepToString()
     System.out.println('\n' + "TESTING 2D ARRTOSTRING() USING ARRAYS.DEEPTOSTRING():");
-	int[][] test2 = {{}, {0}, {0, 1}, {-2, 3, -4}};
-    System.out.println("Array contents according to Arrays.deepToString(): " + Arrays.deepToString(test2));
-	System.out.println("Array contents according to my 2D arrToString(): " + arrToString(test2));
-	System.out.println("Same contents: " + Arrays.deepToString(test2).equals(arrToString(test2)));
+	int[][] test2 = {{-99}, {0}, {0, 1}, {-2, 3, -4}};
+	ans = Arrays.deepToString(test2);
+	myAns = arrToString(test2);
+    System.out.println("Array contents according to Arrays.deepToString(): " + ans);
+	System.out.println("Array contents according to my 2D arrToString(): " + myAns);
+	System.out.println("Same contents: " + ans.equals(myAns));
 	
 	//Both of the above methods were more thoroughly tested in a previous class.
 	
-	//Testing countZeroes2D()
-	System.out.println('\n' + "TESTING COUNTZEROES2D():");
+	//Testing countZeros2D()
+	System.out.println('\n' + "TESTING COUNTZEROS2D():");
+	int[][] count1 = new int[3][4];
+	ans = "12";
+	myAns = countZeros2D(count1) + ""; //turn the answer into a string for comparison
+	System.out.println("Array: " + Arrays.deepToString(count1));
+	System.out.println(arrow + "Intended count of zeroes: " + ans);
+	System.out.println(arrow + "Function returned: " + myAns);
+	System.out.println(arrow + "Same value: " + ans.equals(myAns));
+	int[][] count2 = {{0}, {-1}, {9, 0, 0, 876, -3889}};
+	ans = "3";
+	myAns = countZeros2D(count2) + ""; //turn the answer into a string for comparison
+	System.out.println("Array: " + Arrays.deepToString(count2));
+	System.out.println(arrow + "Intended count of zeroes: " + ans);
+	System.out.println(arrow + "Function returned: " + myAns);
+	System.out.println(arrow + "Same value: " + ans.equals(myAns));
 	
 	//Testing htmlTable()
 	System.out.println('\n' + "TESTING HTMLTABLE():");
@@ -59,8 +84,16 @@ public class ArrayDemo{
 	}
 
   //1. Calculate and return how many elements equal zero in the 2D array.
-  public static int countZeros2D(int[][] nums){
-    return 0;
+  public static int countZeros2D(int[][] nums) {
+    int count = 0;
+	for (int i = 0; i < nums.length; i++) {
+		for (int j = 0; j < nums[i].length; j++) {
+			if (nums[i][j] == 0) {
+				count++;
+			}
+		}
+	}
+	return count;
   }
 
   //2. Calculate the sum of a 2d array
@@ -136,7 +169,7 @@ public class ArrayDemo{
   //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
-  public static String htmlTable(int[][]nums){
+  public static String htmlTable(int[][]nums) {
     return "";
   }
 }
