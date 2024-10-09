@@ -7,10 +7,29 @@ public class ArrayDemo{
     //do not use any other Arrays.method()
 
     //Testing 1D arrToString() using Arrays.toString()
-    System.out.println('\n' + "TESTING 1D ARRTOSTRING() USING ARRAYS.TOSTRING():")
+    System.out.println('\n' + "TESTING 1D ARRTOSTRING() USING ARRAYS.TOSTRING():");
+	int[] test = {0, 1, 2, 3};
+    System.out.println("Array contents according to Arrays.toString(): " + Arrays.toString(test));
+	System.out.println("Array contents according to my 1D arrToString(): " + arrToString(test));
+	System.out.println("Same contents: " + Arrays.toString(test).equals(arrToString(test)));
 
-
-    //REMINDER TO SELF: TEST 2D ARRTOSTRING USING A DIFFERENT ARRAY METHOD (deep? research)
+    //Testing 2D arrToString() using Arrays.deepToString()
+    System.out.println('\n' + "TESTING 2D ARRTOSTRING() USING ARRAYS.DEEPTOSTRING():");
+	int[][] test2 = {{}, {0}, {0, 1}, {-2, 3, -4}};
+    System.out.println("Array contents according to Arrays.deepToString(): " + Arrays.deepToString(test2));
+	System.out.println("Array contents according to my 2D arrToString(): " + arrToString(test2));
+	System.out.println("Same contents: " + Arrays.deepToString(test2).equals(arrToString(test2)));
+	
+	//Both of the above methods were more thoroughly tested in a previous class.
+	
+	//Testing countZeroes2D()
+	System.out.println('\n' + "TESTING COUNTZEROES2D():");
+	
+	//Testing htmlTable()
+	System.out.println('\n' + "TESTING HTMLTABLE():");
+	
+	//arr2DSum(), replaceNegative(), 1D copy() and 2D copy(), and swapRC were all tested in a previous class and copy-pasted from there
+	
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
