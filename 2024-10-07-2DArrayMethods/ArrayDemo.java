@@ -1,5 +1,7 @@
 import java.util.Arrays;
+
 public class ArrayDemo{
+	
   public static void main(String[]args){
     //write your tests here!
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
@@ -52,8 +54,14 @@ public class ArrayDemo{
 	
 	//Testing htmlTable()
 	System.out.println('\n' + "TESTING HTMLTABLE():");
+	int[][] html1 = {{1, 2, 3}, {10, 20, 30}, {100, 200, 300}};
+	System.out.println("Array: " + Arrays.deepToString(html1));
+	System.out.println("HTML Table: " + htmlTable(html1));
+	int[][] html2 = {{0}, {-1, -97864, 5896}, {2, 3}};
+	System.out.println("Array: " + Arrays.deepToString(html2));
+	System.out.println("HTML Table: " + htmlTable(html2));
 	
-	//arr2DSum(), replaceNegative(), 1D copy() and 2D copy(), and swapRC were all tested in a previous class and copy-pasted from there
+	//arr2DSum(), replaceNegative(), 1D copy() and 2D copy(), and swapRC were all tested in a previous class and copy-pasted from there.
 	
   }
 
@@ -61,10 +69,10 @@ public class ArrayDemo{
   public static String arrToString(int[] nums) {
     String fin = "[";
     for (int i = 0; i < nums.length; i++) {
-        fin += nums[i] + "";
-        if (i < nums.length - 1) {
+      fin += nums[i] + "";
+      if (i < nums.length - 1) {
         fin += ", ";
-        }
+      }
     }
     return fin + "]";
   }
@@ -73,25 +81,25 @@ public class ArrayDemo{
   //as long as the parameters are different! (type and/or quantity must be different)
   //Pro tip: you should be using your 1D arrToString in this method!
   public static String arrToString(int[][]ary) {
-		String fin = "[";
-		for (int i = 0; i < ary.length; i++) {
-		    fin += arrToString(ary[i]);
-		    if (i < ary.length - 1) {
-				fin += ", ";
-		    }
-		}
-		return fin + "]";
+    String fin = "[";
+	for (int i = 0; i < ary.length; i++) {
+	  fin += arrToString(ary[i]);
+	  if (i < ary.length - 1) {
+		fin += ", ";
+	  }
 	}
+	return fin + "]";
+  }
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums) {
     int count = 0;
 	for (int i = 0; i < nums.length; i++) {
-		for (int j = 0; j < nums[i].length; j++) {
-			if (nums[i][j] == 0) {
-				count++;
-			}
+	  for (int j = 0; j < nums[i].length; j++) {
+		if (nums[i][j] == 0) {
+		  count++;
 		}
+	  }
 	}
 	return count;
   }
@@ -99,15 +107,15 @@ public class ArrayDemo{
   //2. Calculate the sum of a 2d array
   /*Return the sum of all of the values in the 2D array
    *Use a nested loop instead of a helper method*/
-   public static int arr2DSum(int[][]nums) {
- 		int sum = 0;
- 		for (int i = 0; i < nums.length; i++) { //loops through the first dimension of the 2D array
- 			for (int j = 0; j < nums[i].length; j++) { //loops through the second dimension of the 2D array
- 				sum += nums[i][j];
- 			}
- 		}
- 		return sum;
+  public static int arr2DSum(int[][]nums) {
+    int sum = 0;
+ 	for (int i = 0; i < nums.length; i++) { //loops through the first dimension of the 2D array
+ 	  for (int j = 0; j < nums[i].length; j++) { //loops through the second dimension of the 2D array
+ 		sum += nums[i][j];
+ 	  }
  	}
+ 	return sum;
+  }
 
   //3. Modify a given 2D array of integer as follows:
   //Replace all the negative values:
@@ -115,18 +123,18 @@ public class ArrayDemo{
   //that negative with the value 1
   //-All other negatives replace with 0
   public static void replaceNegative(int[][] vals){
-		for (int i = 0; i < vals.length; i++) {
-			for (int j = 0; j < vals[i].length; j++) {
-				if (vals[i][j] < 0) {
-					int replace = 0;
-					if (i == j) {
-						replace++;
-					}
-					vals[i][j] = replace;
-				}
-			}
+	for (int i = 0; i < vals.length; i++) {
+	  for (int j = 0; j < vals[i].length; j++) {
+		if (vals[i][j] < 0) {
+		  int replace = 0;
+		  if (i == j) {
+			replace++;
+		  }
+		  vals[i][j] = replace;
 		}
-	}
+	  }
+    }
+  }
 
   //4. Make a copy of the given 2d array.
   //When testing : make sure that changing the original does NOT change the copy.
@@ -167,9 +175,22 @@ public class ArrayDemo{
   //   tr tags around each row, and td tags around each value.
   //   You may use a helper method
   //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
-  //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
-  // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
+  //   e.g. htmlTable(new int[][]{{1,2},{3}}) returns:
+  //   "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums) {
-    return "";
+    String table = "<table>";
+	for (int i = 0; i < nums.length; i++) {
+	  table += htmlRow(nums[i]);
+	}
+	return table + "</table>";
   }
+  
+  public static String htmlRow(int[] nums) { //helper method for the above htmlTable() method
+	String row = "<tr>";
+	for (int i = 0; i < nums.length; i++) {
+	  row += "<td>" + nums[i] + "</td>";
+	}
+	return row + "</tr>";
+  }
+
 }
