@@ -56,5 +56,21 @@ public class Demo{
 	System.out.println("Distance from p1 to p1 using distance: " + distance(p1,p1));
     System.out.println("Distance from p1 to p1 using Point.distance: " + Point.distance(p1,p1));
     System.out.println("Distance from p1 to p1 using distanceTo: " + p1.distanceTo(p1));
+	
+	
+	//Making an equilateral triangle with side length 1
+	System.out.println('\n' + "TRYING TO MAKE AN EQUILATERAL TRIANGLE WITH SIDE LENGTH 1:");
+	Point v1 = new Point(0,0);
+	Point v2 = new Point(1,0);
+	Point v3 = new Point(0.5, Math.sqrt(3.0)/2.0);
+	
+	System.out.println("v1: " + v1);
+    System.out.println("v2: " + v2);
+    System.out.println("v3: " + v3);
+	
+	System.out.println("Length of side 1: " + distance(v1,v2));
+    System.out.println("Length of side 2: " + distance(v2,v3));
+	System.out.println("Length of side 3: " + distance(v1,v3));
+	
   }
 }
