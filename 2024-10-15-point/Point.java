@@ -9,8 +9,8 @@ public class Point{
   public Point(Point other){
     //COMPLETE THIS SECOND
     //Then write test cases.
-    x = this.x;
-    y = this.y;
+    this.x = other.x;
+    this.y = other.y;
   }
 
   //Initialize this Point to have the provided values
