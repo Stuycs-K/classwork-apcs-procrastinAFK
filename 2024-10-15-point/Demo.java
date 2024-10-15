@@ -5,7 +5,7 @@ public class Demo{
   to the others.
   */
   public static double distance(Point a, Point b){
-    return 0.0;
+    return a.distanceTo(b);
   }
 
   public static void main(String[]args){
@@ -26,11 +26,10 @@ public class Demo{
     System.out.println ("Copy point 2: " + cp2); // Expected: (-1.0, -1.0)
     System.out.println ("Copy point 3: " + cp3); // Expected: (3.0, 4.0)
 
-    /*
-    System.out.println( p3);
-    System.out.println( distance(p1,p2));
-    System.out.println( Point.distance(p1,p2));
-    System.out.println( p1.distanceTo(p2));
-    */
+    
+    System.out.println("Distance from p1 to p2 using distance: " + distance(p1,p2));
+    System.out.println("Distance from p1 to p2 using Point.distance: " + Point.distance(p1,p2));
+    System.out.println("Distance from p1 to p2 using distanceTo: " + p1.distanceTo(p2));
+    
   }
 }
