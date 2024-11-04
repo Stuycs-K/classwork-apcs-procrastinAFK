@@ -6,7 +6,8 @@ import java.util.Scanner;
 public class TriangleTester {
 
   public static int countTrianglesA(String filename) {
-    //do file parsing
+    int count = 0;
+    File file = new File("inputTri.txt");
     return 0; //so it can compile
   }
 
