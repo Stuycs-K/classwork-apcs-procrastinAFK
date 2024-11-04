@@ -23,6 +23,14 @@ public class TriangleTester {
 
   public static void main(String[] args) {
     int[] teststuff = new int[]{5, 10, 25};
-    System.out.println("5, 10, 25 (should be FALSE): " + isTriangle(teststuff));
+    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
+    teststuff = new int[]{5, 100, 5};
+    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
+    teststuff = new int[]{5, 5, 2};
+    System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
+    teststuff = new int[]{1, 2, 3};
+    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
+    teststuff = new int[]{3, 2, 3};
+    System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
   }
 }
