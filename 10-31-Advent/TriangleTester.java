@@ -84,6 +84,10 @@ public class TriangleTester {
 	
 	System.out.println('\n' + "TESTING COUNTTRIANGLESA:");
 	System.out.println("Using a file that doesn't exist (should print 0 and that the file doesn't exist): " + countTrianglesA("noExist.txt"));
-	System.out.println("Testing inputTri.txt with TEMPORARY numbers (should print 2): " + countTrianglesA("inputTri.txt"));
+	System.out.println("Testing inputTri.txt with TEMPORARY numbers: this used to print 2 as intended, and now the test numbers have changed.");
+	
+	System.out.println('\n' + "TESTING COUNTTRIANGLESB:");
+	System.out.println("Using a file that doesn't exist (should print 0 and that the file doesn't exist): " + countTrianglesB("noExist.txt"));
+	System.out.println("Testing inputTri.txt with TEMPORARY numbers (should print 8): " + countTrianglesB("inputTri.txt"));
   }
 }
