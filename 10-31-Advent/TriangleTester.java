@@ -53,6 +53,8 @@ public class TriangleTester {
     teststuff = new int[]{3, 2, 3};
     System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
 	
-	
+	System.out.println('\n' + "TESTING COUNTTRIANGLESA:");
+	System.out.println("Using a file that doesn't exist (should print 0 and that the file doesn't exist): " + countTrianglesA("noExist.txt"));
+	System.out.println("Testing inputTri.txt with TEMPORARY numbers (should print 2): " + countTrianglesA("inputTri.txt"));
   }
 }
