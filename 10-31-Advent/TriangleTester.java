@@ -11,11 +11,9 @@ public class TriangleTester {
       File file = new File(filename);
 	  Scanner input = new Scanner(file);
 	  while (input.hasNextLine()) {
-	    String line = input.nextLine();
-	    String[] nums = line.split(" ");
-	    int[] sides = new int[3]; //sides of a triangle
-	    for (int i = 0; i < sides.length; i++) {
-		  sides[i] = Integer.parseInt(nums[i]);
+		int[] sides = new int[3]; //sides of a triangle
+		for (int i = 0; i < sides.length; i++) {
+		  sides[i] = input.nextInt();
 	    }
 	    if (isTriangle(sides)) {
 		  count++;
@@ -36,10 +34,9 @@ public class TriangleTester {
 	  while (input.hasNextLine()) { //actually means it has 3 or more lines since we're allowed to assume there is a multiple of 3 number of lines
 	    int[][] allSides = new int[3][3]; //3 triangles, 3 sides per triangle
 		for (int sideNum = 0; sideNum < allSides.length; sideNum++) { //make a 2D array with all the side lengths of each triangle
-		  String[] nums = input.nextLine().split(" ");
-		  int[] sides = new int[3]; //side number sideNum of each triangle
-	      for (int i = 0; i < sides.length; i++) {
-		    sides[i] = Integer.parseInt(nums[i]);
+		  int[] sides = new int[3]; //sides of a triangle
+		  for (int i = 0; i < sides.length; i++) {
+		    sides[i] = input.nextInt();
 	      }
 		  allSides[sideNum] = sides;
 		}
@@ -69,25 +66,8 @@ public class TriangleTester {
   }
 
   public static void main(String[] args) {
-	
-	System.out.println('\n' + "TESTING ISTRIANGLE:");
-    int[] teststuff = new int[]{5, 10, 25};
-    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
-    teststuff = new int[]{5, 100, 5};
-    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
-    teststuff = new int[]{5, 5, 2};
-    System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
-    teststuff = new int[]{1, 2, 3};
-    System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
-    teststuff = new int[]{3, 2, 3};
-    System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
-	
-	System.out.println('\n' + "TESTING COUNTTRIANGLESA:");
-	System.out.println("Using a file that doesn't exist (should print 0 and that the file doesn't exist): " + countTrianglesA("noExist.txt"));
-	System.out.println("Testing inputTri.txt with TEMPORARY numbers: this used to print 2 as intended, and now the test numbers have changed.");
-	
-	System.out.println('\n' + "TESTING COUNTTRIANGLESB:");
-	System.out.println("Using a file that doesn't exist (should print 0 and that the file doesn't exist): " + countTrianglesB("noExist.txt"));
-	System.out.println("Testing inputTri.txt with TEMPORARY numbers (should print 8): " + countTrianglesB("inputTri.txt"));
+	System.out.println("" + countTrianglesA("inputTri.txt"));
+	System.out.println("" + countTrianglesB("inputTri.txt"));
   }
+
 }
