@@ -7,8 +7,25 @@ public class TriangleTester {
 
   public static int countTrianglesA(String filename) {
     int count = 0;
-    File file = new File("inputTri.txt");
-    return 0; //so it can compile
+	try {
+      File file = new File(filename);
+	  Scanner input = new Scanner(file);
+	  while (input.hasNextLine()) {
+	    String line = input.nextLine();
+	    String[] nums = line.split(" ");
+	    int[] sides = new int[nums.length];
+	    for (int i = 0; i < nums.length; i++) {
+		  sides[i] = Integer.parseInt(nums[i]);
+	    }
+	    if (isTriangle(sides)) {
+		  count++;
+	    }
+	  }
+	  input.close();
+	} catch(FileNotFoundException ex) {
+	  System.out.println("File not found!");
+	}
+    return count;
   }
 
   public static boolean isTriangle(int[] sides) {
@@ -23,6 +40,8 @@ public class TriangleTester {
   }
 
   public static void main(String[] args) {
+	
+	System.out.println('\n' + "TESTING ISTRIANGLE:");
     int[] teststuff = new int[]{5, 10, 25};
     System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
     teststuff = new int[]{5, 100, 5};
@@ -33,5 +52,7 @@ public class TriangleTester {
     System.out.println(teststuff + " (should be FALSE): " + isTriangle(teststuff));
     teststuff = new int[]{3, 2, 3};
     System.out.println(teststuff + " (should be TRUE): " + isTriangle(teststuff));
+	
+	
   }
 }
