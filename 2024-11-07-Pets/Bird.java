@@ -2,7 +2,6 @@ public class Bird extends Animal {
   private double height;
   private String color;
 
-
   //4.
   public Bird(String noise, int age, String name, double height, String color){
     //In order to construct the Bird you must first call the superclass constructor
@@ -12,7 +11,6 @@ public class Bird extends Animal {
     this.height = height;
     this.color = color;
   }
-
 
   //6.Override the speak() method.
   /*WITHOUT REPEATING CODE:
@@ -29,8 +27,6 @@ public class Bird extends Animal {
     System.out.println ("My feather are colored "+ color + ".");
     System.out.println ("I am "+ height + " inches tall");
   }
-
-
 
   //7:Override the getName() method so that a bid's name is "The Mighty NAME" instead of "NAME"
   //e.g. "The Mighty Polly" instead of just "Polly"
