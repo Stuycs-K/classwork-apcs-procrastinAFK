@@ -40,5 +40,7 @@ public class Driver{
 	System.out.println(Arrays.toString(test4) + " + " + Arrays.toString(test5) + " --> " + ArrayListPractice.mixLists(new ArrayList<String>(Arrays.asList(test4)), new ArrayList<String>(Arrays.asList(test5))));
 	test5 = new String[]{};
 	System.out.println(Arrays.toString(test4) + " + " + Arrays.toString(test5) + " --> " + ArrayListPractice.mixLists(new ArrayList<String>(Arrays.asList(test4)), new ArrayList<String>(Arrays.asList(test5))));
+	test2 = ArrayListPractice.createRandomArray(200000);
+	System.out.println(test2 + " + " + test3 + " --> " + ArrayListPractice.mixLists(test2, test3));
   }
 }
