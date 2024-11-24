@@ -10,7 +10,11 @@ public class fileParser {
             File file = new File(filename);
 			Scanner input = new Scanner(file);
 			while (input.hasNext()){
-				contents.add(input.next());
+				String item = input.next();
+				if (item.contains(",")) {
+					item = item.replace(",", "");
+				}
+				contents.add(item);
 			}
 			input.close();
 		} catch(FileNotFoundException ex) {
