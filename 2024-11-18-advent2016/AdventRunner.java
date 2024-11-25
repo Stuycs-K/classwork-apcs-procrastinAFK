@@ -5,5 +5,8 @@ public class AdventRunner {
 		
 		System.out.println("\n");
 		System.out.println(Day1.blocksAway("inputDay1.txt"));
+		
+		System.out.println("\n");
+		System.out.println(Day2.roomCode("inputDay2.txt"));
 	}
 }
