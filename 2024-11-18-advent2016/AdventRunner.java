@@ -8,5 +8,8 @@ public class AdventRunner {
 		
 		System.out.println("\n");
 		System.out.println(Day2.roomCode("inputDay2.txt"));
+		
+		System.out.println("\n");
+		System.out.println(Day6.codeBreaker("inputDay6.txt"));
 	}
 }
