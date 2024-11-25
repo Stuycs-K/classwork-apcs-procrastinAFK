@@ -22,4 +22,21 @@ public class fileParser {
 		}
 		return contents;
 	}
+	
+	public static ArrayList parseFile2D(String filename) { //must include file extension
+		ArrayList<String[]> contents = new ArrayList<String[]>();
+		try {
+            File file = new File(filename);
+			Scanner input = new Scanner(file);
+			while (input.hasNextLine()) {
+				String line = input.nextLine();
+				String[] lineList = line.split("");
+				contents.add(lineList);
+			}
+			input.close();
+		} catch(FileNotFoundException ex) {
+			System.out.println("File not found!");
+		}
+		return contents;
+	}
 }
