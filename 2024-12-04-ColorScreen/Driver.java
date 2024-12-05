@@ -7,7 +7,7 @@ public class Driver {
 		System.out.print(Text.HIDE_CURSOR);
 		
 		//set up border
-		String cols = "\033[" + Text.background(Text.RED) + "m";
+		int cols = Text.background(Text.RED);
 		printBorder(cols, " ", new int[]{1,1}, 80, 30);
 		
 		//display 3 random (0-99) integers evenly (ish) spaced within the border
@@ -24,6 +24,8 @@ public class Driver {
 			System.out.print(toPrint);
 			Text.color(0);
 		}
+		//Print a horizontal border
+		printBorder(cols, "-", new int[]{3,2}, 78, 1);
 		
 		//back to normal
 		System.out.println(Text.RESET);
@@ -34,11 +36,11 @@ public class Driver {
 	
 	
 	//Helper functions
-	public static void printBorder(String cols, String borderChar, int[] startPos, int length, int width) {
+	public static void printBorder(int cols, String borderChar, int[] startPos, int length, int width) {
 		for (int row = 0; row < width; row++) {
 			
 			//print a border char at the start of each row
-			System.out.print(cols);
+			Text.color(cols);
 			Text.go(startPos[0] + row, startPos[1]);
 			System.out.print(borderChar);
 			
@@ -56,13 +58,13 @@ public class Driver {
 			}
 			
 			//print the final character for each row
-			System.out.print(cols);
+			Text.color(cols);
 			Text.go(startPos[0] + row, startPos[1] + length - 1);
 			System.out.print(borderChar);
 			
 		}
 		
-		System.out.print(Text.RESET);
+		Text.color(0);
 	}
 	
 	
