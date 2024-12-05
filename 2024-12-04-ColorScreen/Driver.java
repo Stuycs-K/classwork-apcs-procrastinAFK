@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Driver {
 	
 	public static void main(String[] args) {
@@ -9,6 +11,7 @@ public class Driver {
 		Text.go(31, 1); //move cursor so that we don't write over our border
 		System.out.print(Text.SHOW_CURSOR);
 	}
+	
 	
 	
 	//Helper functions
@@ -39,5 +42,16 @@ public class Driver {
 			System.out.print(borderChar);
 			
 		}
+		
 	}
+	
+	
+	public static int[] makeRandArr(int size, int range, int min) {
+		int[] randArr = new int[3];
+		for (int i = 0; i < randArr.length; i++) {
+			randArr[i] = (int) (Math.random() * range) + min;
+		}
+		return randArr;
+	}
+
 }
