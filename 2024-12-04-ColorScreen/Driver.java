@@ -5,8 +5,27 @@ public class Driver {
 	public static void main(String[] args) {
 		System.out.println(Text.CLEAR_SCREEN);
 		System.out.print(Text.HIDE_CURSOR);
+		
+		//set up border
 		String cols = "\033[" + Text.background(Text.RED) + "m";
 		printBorder(cols, " ", new int[]{1,1}, 80, 30);
+		
+		//display 3 random (0-99) integers evenly (ish) spaced within the border
+		//setup
+		Text.go(2,2);
+		int[] rands = makeRandArr(3, 100, 0);
+		String spacing = "                                    "; //36 spaces
+		//do the actual printing
+		for (int i = 0; i < 3; i++) {
+			int toPrint = rands[i];
+			if (i > 0) System.out.print(spacing);
+			if (toPrint < 25) Text.color(Text.RED, Text.BRIGHT);
+			if (toPrint > 75) Text.color(Text.GREEN, Text.BRIGHT);
+			System.out.print(toPrint);
+			Text.color(0);
+		}
+		
+		//back to normal
 		System.out.println(Text.RESET);
 		Text.go(31, 1); //move cursor so that we don't write over our border
 		System.out.print(Text.SHOW_CURSOR);
@@ -26,7 +45,7 @@ public class Driver {
 			//decide what to print for the rest of the row
 			String printChar = borderChar;
 			if (!(row == 0 || row == width - 1)) {
-				System.out.print(Text.RESETCOL);
+				Text.color(0);
 				printChar = " ";
 			}
 			
@@ -43,6 +62,7 @@ public class Driver {
 			
 		}
 		
+		System.out.print(Text.RESET);
 	}
 	
 	
