@@ -11,9 +11,13 @@ public class Game {
 
     //Create p1 and opponent
     Adventurer p1 = new Mage(username);
-    System.out.println("Your character: " + printStats(p1));
+    System.out.println("\nYour character: " + printStats(p1));
     Adventurer enemy = new CodeWarrior();
     System.out.println("Your opponent: " + printStats(enemy));
+
+    System.out.println("FIGHT!");
+
+    
   }
 
   public static String printStats(Adventurer p) {
