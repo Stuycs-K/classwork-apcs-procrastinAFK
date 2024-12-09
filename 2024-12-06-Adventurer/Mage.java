@@ -67,7 +67,7 @@ public class Mage extends Adventurer {
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
     if (getSpecial() - 8 < 0) {
-      return getName + " does not have enough " + getSpecialName() + ": " + getSpecial() + "/8";
+      return getName() + " does not have enough " + getSpecialName() + ": " + getSpecial() + "/8";
     }
     other.applyDamage(5);
     setSpecial(getSpecial() - 8);
