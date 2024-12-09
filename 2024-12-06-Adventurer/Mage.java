@@ -43,36 +43,46 @@ public class Mage extends Adventurer {
   //hurt or hinder the target adventurer
   public String attack(Adventurer other) {
     other.applyDamage(2);
-    return getName() + " attacked " + other.getName() + " and dealt 2 damage!";
+	return getName() + " attacked " + other + " and dealt 2 damage!" + stillAlive(other);
   }
 
   //heal or buff the target adventurer
   public String support(Adventurer other) {
     if (other.getHP() == other.getmaxHP()) {
-      return other.getName() + " is already at full health!";
+      return getName() + " tried to heal " + other + ", but they were already at full health!";
     }
     other.setHP(other.getHP() + 1);
-    return getName() + " healed " + other.getName() + " 1 hp!";
+    return getName() + " healed " + other + " 1 hp! They are now at " + other.getHP() + "/" + other.getmaxHP() + " health!";
   }
 
   //heal or buff self
   public String support() {
     if (getHP() == getmaxHP()) {
-      return getName() + " is already at full health!";
+      return getName() + " tried to heal themself, but they were already at full health!";
     }
     setHP(getHP() + 1);
-    return getName() + " healed themself 1 hp!";
+    return getName() + " healed themself 1 hp! They are now at " + getHP() + "/" + getmaxHP() + " health!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other) {
     if (getSpecial() - 8 < 0) {
-      return getName() + " does not have enough " + getSpecialName() + ": " + getSpecial() + "/8";
+      return getName() + " tried to use a specialAttack, but does not have enough " + getSpecialName() + ": " + getSpecial() + "/8";
     }
+	setSpecial(getSpecial() - 8);
     other.applyDamage(5);
-    setSpecial(getSpecial() - 8);
-    return getName() + " applied 5 damage to " + other.getName() + " and used 8 " + getSpecialName() + "!";
+    return getName() + " applied 5 damage to " + other + " and used 8 " + getSpecialName() + "!" + stillAlive(other)
+	  + "\n" + getName() + " has " + getSpecial() + " " + getSpecialName() + " left!";
   }
-
+  
+  
+  //helper method
+  public static String stillAlive(Adventurer wounded) {
+	if (wounded.getHP() <= 0) {
+	  wounded.setHP(0);
+	  return "\n" + wounded + " has lost the battle!";
+	}
+	return "\n" + wounded + " is on " + wounded.getHP() + "HP!";
+  }
 
 }
