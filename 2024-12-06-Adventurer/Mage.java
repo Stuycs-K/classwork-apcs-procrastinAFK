@@ -57,11 +57,16 @@ public class Mage extends Adventurer {
 
   //heal or buff self
   public String support() {
-    if (getHP() == getmaxHP()) {
-      return getName() + " tried to heal themself, but they were already at full health!";
+    if (getHP() == getmaxHP() && getSpecial() == getSpecialMax()) {
+      return getName() + " tried to support themself, but they were already at full health and " + getSpecialName() + "!";
     }
-    setHP(getHP() + 1);
-    return getName() + " healed themself 1 hp! They are now at " + getHP() + "/" + getmaxHP() + " health!";
+	int addHP = 2 - (getmaxHP() - getHP());
+	if (addHP < 0) {
+	  addHP = 0;
+	}
+    setHP(getHP() + addHP);
+	restoreSpecial(4);
+    return getName() + " healed themself and/or restored some " + getSpecialName() + "! They are now at " + getHP() + "/" + getmaxHP() + " health and " + getSpecial() + " " + getSpecialName() + "!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
@@ -82,7 +87,7 @@ public class Mage extends Adventurer {
 	  wounded.setHP(0);
 	  return "\n" + wounded + " has lost the battle!";
 	}
-	return "\n" + wounded + " is on " + wounded.getHP() + "HP!";
+	return "";
   }
 
 }
